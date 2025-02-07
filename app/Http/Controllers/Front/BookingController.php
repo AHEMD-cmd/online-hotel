@@ -84,7 +84,6 @@ class BookingController extends Controller
 
     public function payment(PaymentRequest $request)
     {
-
         session()->put('billing_name', $request->billing_name);
         session()->put('billing_email', $request->billing_email);
         session()->put('billing_phone', $request->billing_phone);
