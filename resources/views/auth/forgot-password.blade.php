@@ -1,25 +1,41 @@
-<x-guest-layout>
-    <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
-        {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+@extends('front.layout.app')
+
+@section('main_content')
+<div class="page-top">
+    <div class="bg"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Forget password</h2>
+            </div>
+        </div>
     </div>
+</div>
 
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+<div class="page-content">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-4">
 
-    <form method="POST" action="{{ route('password.email') }}">
-        @csrf
+                <form action="{{ route('password.email') }}" method="post">
+                    @csrf
+                    <div class="login-form">
+                        <div class="mb-3">
+                            <label for="" class="form-label">Email Address</label>
+                            <input type="text" class="form-control" name="email">
+                            @if($errors->has('email'))
+                                <span class="text-danger">{{ $errors->first('email') }}</span>
+                            @endif
+                        </div>
+                        <div class="mb-3">
+                            <button type="submit" class="btn btn-primary bg-website">Submit</button>
+                            <a href="{{ route('login') }}" class="primary-color">Back to Login Page</a>
+                        </div>
+                    </div>
+                </form>
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+            </div>
         </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <x-primary-button>
-                {{ __('Email Password Reset Link') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+    </div>
+</div>
+@endsection

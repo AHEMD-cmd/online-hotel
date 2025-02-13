@@ -34,7 +34,7 @@
 
 
 
-    {{-- <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
+    <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
     <script>
         Pusher.logToConsole = true;
 
@@ -43,11 +43,11 @@
         });
 
         var channel = pusher.subscribe('cart');
-        channel.bind('cartUpdated', function(data) {
+        channel.bind('CartUpdated', function(data) {
             console.log(data.cartCount);
             $('#cart-count').text(data.cartCount);
         });
-    </script> --}}
+    </script>
 
 
 
@@ -211,6 +211,7 @@
                         </ul>
                     </div>
                 </div>
+
                 <div class="col-md-3">
                     <div class="item">
                         <h2 class="heading">Useful Links</h2>

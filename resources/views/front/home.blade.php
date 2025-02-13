@@ -182,6 +182,7 @@
                     <h2 class="main-header">Latest Posts</h2>
                 </div>
             </div>
+
             <div class="row">
                 @foreach ($posts as $post)
                     <div class="col-md-4">
@@ -207,10 +208,6 @@
             </div>
         </div>
     </div>
-
-
-
-    
 @endsection
 
 
@@ -251,7 +248,7 @@
                             let errors = xhr.responseJSON.errors;
                             $.each(errors, function(key, value) {
                                 $(".error-" + key).text(value[
-                                0]); // Display validation error
+                                    0]); // Display validation error
                             });
                         } else {
                             Swal.fire({

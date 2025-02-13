@@ -31,11 +31,11 @@ window.Echo = new Echo({
     enabledTransports: ['ws', 'wss'],
 });
 
-window.Echo.channel('cart')
-    .listen('CartUpdated', (event) => {
-        console.log('Cart updated:', event);
-        $('#cart-count').text(event.cartCount);
-    });
+// window.Echo.channel('cart')
+//     .listen('CartUpdated', (event) => {
+//         console.log('Cart updated:', event);
+//         $('#cart-count').text(event.cartCount);
+//     });
 
 
 
